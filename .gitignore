@@ -1,0 +1,23 @@
+# --- .NET / C# ---
+bin/
+obj/
+.vs/
+.vscode/
+*.user
+*.suo
+*.shell
+
+# --- PHP ---
+vendor/
+.phpintel/
+.phpunit.result.cache
+
+# --- Database  ---
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+
+# --- OS / Misc ---
+.DS_Store
+Thumbs.db
