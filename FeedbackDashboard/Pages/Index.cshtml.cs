@@ -12,7 +12,7 @@ public class IndexModel : PageModel
     {
         string rootPath = Directory.GetCurrentDirectory();
         string dbPath = Path.Combine(rootPath, "feedback.db");
-
+        Console.WriteLine($"Looking for database at: {dbPath}");
         using (var connection = new SqliteConnection($"Data Source={dbPath}"))
         {
             connection.Open();

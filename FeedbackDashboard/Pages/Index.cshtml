@@ -1,10 +1,36 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+    ViewData["Title"] = "System Monitor";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Feedback Dashboard</h1>
+    <p class="text-muted">Live data from PHP Ingestion Service</p>
+</div>
+
+<div class="container mt-4">
+    <table class="table table-hover shadow-sm">
+        <thead class="table-dark">
+            <tr>
+                <th>User</th>
+                <th>Message</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.FeedbackList)
+            {
+                <tr class="@(item.IsUrgent ? "table-danger" : "")">
+                    <td><strong>@item.User</strong></td>
+                    <td>@item.Message</td>
+                    <td>
+                        <span class="badge @(item.IsUrgent ? "bg-danger" : "bg-success")">
+                            @(item.IsUrgent ? "URGENT" : "Normal")
+                        </span>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>
